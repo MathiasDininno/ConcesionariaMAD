@@ -1,5 +1,5 @@
 const autos = [
-    { id: 11, marca: "Audi", modelo: "A7", anio: 2022, kilometros: 0, estado: "Nuevo", valor: 4700000, },
+    { id: 11, marca: "Audi", modelo: "A7", anio: 2022, kilometros: 0, estado: "Nuevo", valor: 4700000, img:"./img/Auto-Audi.webp"},
     { id: 12, marca: "Chevrolet", modelo: "Cruze", anio: 2022, kilometros: 0, estado: "Nuevo", valor: 1200000, },
     { id: 13, marca: "Ford", modelo: "Focus-SE", anio: 2022, kilometros: 0, estado: "Nuevo", valor: 3600000, },
     { id: 14, marca: "Volkswagen", modelo: "Polo", anio: 2022, kilometros: 0, estado: "Nuevo", valor: 2300000, },
@@ -57,6 +57,7 @@ for (const auto of autos) {
     let tarjetaProducto = document.createElement('div')
     tarjetaProducto.className = 'producto'
     tarjetaProducto.innerHTML = `
+    <img class"imgCard" src = ${auto.img}>
     <h3>${auto.marca}</h3>
     <h4>${auto.modelo}</h4>
     <p>${auto.anio}</p>
@@ -89,7 +90,7 @@ for (const boton of botones) {
         <p>${productoBuscado.valor}</p>
         </div>
         `
-        carritoCompra.push({ id: productoBuscado.id, nombre: productoBuscado.modelo, precio: productoBuscado.valor })
+        carritoCompra.push({ id: productoBuscado.id, modelo: productoBuscado.modelo, precio: productoBuscado.valor, marca: productoBuscado.marca })
         console.log(carritoCompra)
         localStorage.setItem("carritoContenedor", JSON.stringify(carritoCompra))
     }

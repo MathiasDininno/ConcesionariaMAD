@@ -50,7 +50,9 @@ body{
     background-color: yellowgreen;
 }
 
-
+.imgCard{
+    width: 20%;
+}
 
 .cardPublicidad{
     margin: 5% 10% 0% 10%;
