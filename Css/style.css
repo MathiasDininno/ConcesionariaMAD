@@ -1,0 +1,85 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+}
+
+#contenedor{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logo{
+    width: 20%;
+    height: 10%;
+}
+
+.carousel-inner{
+    padding-top: 56px;
+}
+
+#parrafos{
+    margin: 0px 20px 0px 20px;
+    text-align: center;
+}
+
+.accordion{
+    display: flex;
+    border-color: rgb(184, 197, 42);
+    flex-direction: column;
+    align-items: center;
+}
+
+#cards{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 20%;
+    background-color: rgba(0, 255, 255, 0);
+}
+
+.producto{
+    width: 50%;
+    height: 20%;
+    margin: 5% 0% 5% 20%;
+    background-color: yellowgreen;
+}
+
+
+
+.cardPublicidad{
+    margin: 5% 10% 0% 10%;
+}
+
+#footer{
+    text-align: center;
+    color: antiquewhite;
+    background-color: RGBA(33,37,41,var(--bs-bg-opacity,1))!important;
+}
+
+#footer ul{
+    list-style: none;
+}
+
+#footer ul li a{
+    color: antiquewhite;
+}
+/* 360×640 (móvil pequeño)
+1366×768 (ordenador portátil medio)
+1920×1080 (escritorio grande)*/
+
+#carrito{
+    width: 310px;
+    height: 210px;
+    border: solid 2px red;
+}
+
+.itemCarrito{
+    display: flex;
+    justify-content: space-around;
+}

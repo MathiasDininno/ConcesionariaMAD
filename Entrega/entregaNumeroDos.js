@@ -1,3 +1,13 @@
+/*const btn = document.querySelector('#menu-btn')
+const menu = document.querySelector('#sidmenu')
+
+btn.addEventListener('click', e =>{
+    menu.classList.toggle('menu-exparded')
+    menu.classList.toggle('menu-collapsed')
+
+    document.querySelector('body').classList.toggle('body-exparded')
+})
+
 alert("Bienvenido a concesionaria M.A.D. Tenemos autos para ofrecerte")
 
 let auto1 = {
@@ -114,4 +124,4 @@ do {
 }
 while (opciones != 0);
 
-alert("Muchas gracias por visitar Concesionaria M.A.D. Hasta promto")
+alert("Muchas gracias por visitar Concesionaria M.A.D. Hasta promto")*/
