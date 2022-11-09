@@ -1,20 +1,26 @@
 const autos = [
-    { id: 11, marca: "Audi", modelo: "A7", anio: 2022, kilometros: 0, estado: "Nuevo", valor: 4700000, img:"./img/Auto-Audi.webp"},
-    { id: 12, marca: "Chevrolet", modelo: "Cruze", anio: 2022, kilometros: 0, estado: "Nuevo", valor: 1200000, },
-    { id: 13, marca: "Ford", modelo: "Focus-SE", anio: 2022, kilometros: 0, estado: "Nuevo", valor: 3600000, },
-    { id: 14, marca: "Volkswagen", modelo: "Polo", anio: 2022, kilometros: 0, estado: "Nuevo", valor: 2300000, },
+    { id: 11, marca: "Audi", modelo: "A7", anio: 2022, kilometros: 0, estado: "Nuevo", valor: 47, img:"./img/Auto-Audi.webp"},
+    { id: 12, marca: "Chevrolet", modelo: "Cruze", anio: 2022, kilometros: 0, estado: "Nuevo", valor: 12, img:"./img/Auto-Audi.webp" },
+    { id: 13, marca: "Ford", modelo: "Focus-SE", anio: 2022, kilometros: 0, estado: "Nuevo", valor: 36, img:"./img/Auto-Audi.webp" },
+    { id: 14, marca: "Volkswagen", modelo: "Polo", anio: 2022, kilometros: 0, estado: "Nuevo", valor: 23, img:"./img/Auto-Audi.webp" },
 ]
 
-let carrito = []
+//----CARRITO----
+let verCarrito = document.getElementById("verCarrito")
+
+verCarrito.onclick = (e) =>{
+    autos.sort((a, b) =>{
+        if(autos.valor > autos.valor){
+            return 1
+        }
+        if(autos.valor < autos.valor){
+            return -1
+        }
+    })
+}
+console.log(verCarrito)
 
 // ---- FILTRAR POR MAYOR VALOR ----
-const mayorValor = document.getElementById("mayorValor")
-
-function valorMayor() {
-    for (const auto of autos) {
-
-    }
-}
 
 
 // ---- BUSCAR VEHICULO ----
@@ -57,11 +63,11 @@ for (const auto of autos) {
     let tarjetaProducto = document.createElement('div')
     tarjetaProducto.className = 'producto'
     tarjetaProducto.innerHTML = `
-    <img class"imgCard" src = ${auto.img}>
-    <h3>${auto.marca}</h3>
-    <h4>${auto.modelo}</h4>
-    <p>${auto.anio}</p>
-    <p>${auto.kilometros}</p>
+    <img class="imgCard" src=${auto.img}>
+    <h3 class="h3Card">${auto.marca}</h3>
+    <h4 class="h4Card">${auto.modelo}</h4>
+    <p class="parrafoCard">${auto.anio}</p>
+    <p class="parrafoCard">${auto.kilometros}</p>
     <button class="boton" id=${auto.id}>Agregar al carrito</button>
     `
     cards.append(tarjetaProducto)
@@ -83,7 +89,6 @@ for (const item of carritoCompra) {
 for (const boton of botones) {
     boton.onclick = (e) => {
         let productoBuscado = autos.find(auto => auto.id == e.target.id)
-        actualizarCarrito()
         carritoContenedor.innerHTML +=`
         <div class="itemCarrito">
         <p>${productoBuscado.marca}</p>
@@ -95,15 +100,3 @@ for (const boton of botones) {
         localStorage.setItem("carritoContenedor", JSON.stringify(carritoCompra))
     }
 }
-
-const actualizarCarrito = () => {
-
-    carrito.forEach((producto) => {
-        const div = document.createEvent("div")
-        div.className = ("productoEnCarrito")
-        div.innerHTML = `
-        <p>${producto.marca}</p>
-        `
-    })
-}
-
