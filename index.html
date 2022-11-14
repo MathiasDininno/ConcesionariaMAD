@@ -20,6 +20,7 @@
         aria-controls="offcanvasDarkNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
+
         <!-- Inicio de icono carrito -->
         <button id="verCarrito" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
         aria-controls="offcanvasRight">
@@ -34,7 +35,9 @@
             <div id="carrito"></div>
           </div>
         </div>
-        <!-- Fin icono carrito -->
+        
+
+        <!-- Titulos - filtrados de boton acordeón -->
         <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
           aria-labelledby="offcanvasDarkNavbarLabel">
           <div class="offcanvas-header">
@@ -45,22 +48,22 @@
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li class="nav-item">
-                <button id="mayorValor">Vehiculo mayor valor</button>
+                <button id="mayorValor">Odenar mayor valor</button>
               </li>
               <li class="nav-item">
-                <button id="menorValor">Vehiculo menor valor</button>
+                <button id="menorValor">Odenar menor valor</button>
               </li>
               <li class="nav-item">
-                <button>Vehiculo con mayor Kilometros</button>
+                <button id="mayorKilometros">Odenar con Kilometros</button>
               </li>
               <li class="nav-item">
-                <button>Vehiculo con menos kilometros</button>
+                <button id="menorKilometros">Odenar con kilometros</button>
               </li>
               <li class="nav-item">
-                <button>Vehiculo usados</button>
+                <button id="menorAnio">Odenar menor modelo</button>
               </li>
               <li class="nav-item">
-                <button>Vehiculo nuevos</button>
+                <button id="mayorAnio">Odenar mayor modelo</button>
               </li>
             </ul>
             <div class="container mt-5">
@@ -75,11 +78,11 @@
         </div>
       </div>
     </nav>
-    <!-- FIN DE NAV -->
+    
 
 
-    <!-- CARRUSEL -->
-
+    <!-- Inicio de CARRUSEL -->
+    <!-- Img de carrusel -->
     <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active" data-bs-interval="10000">
@@ -92,25 +95,26 @@
           <img src="./img/Foto-Carrusel-Ford.jpg" class="d-block w-100" alt="...">
         </div>
       </div>
+      <!-- Boton lateral de carrusle -->
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
         data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
       </button>
+      <!-- Boton lateral de carrusle -->
       <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
         data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-    <!-- FIN CARRUSEL -->
-
+    
     <!-- COMIENZO DE TITULOS -->
     <div id="parrafos">
       <h1 class="parrafo">CONCESIONARIA M.A.D</h1>
       <p class="h1Parrafo">Los mejores autos al menor precio</p>
     </div>
-    <!-- FIN DE TITULOS -->
+
 
     <!-- Accordion -->
     <div class="accordion" id="accordionExample">
@@ -136,14 +140,11 @@
 
     <!-- INICIO CARD -->
     <div id="cards"></div>
-    <!-- FIN CARD -->
 
-
+<!-- Foto publicitaria -->
     <div class="cardPublicidad mb-3">
       <img src="./img/Plan-tasa-0.webp" class="card-img-top" alt="">
     </div>
-
-
 
     <!-- INICIO FOOTER -->
     <div id="footer">

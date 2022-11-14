@@ -19,6 +19,14 @@ body {
     height: 10%;
 }
 
+.offcanvas{
+    height: 100%;
+}
+
+#carrito{
+
+}
+
 .carousel-inner {
     padding-top: 56px;
 }
@@ -103,7 +111,7 @@ body {
 }
 
 @media (min-width: 768px) {
-    /*Maximo de 480*/
+    /*Minimo de 768*/
     #cards{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -111,8 +119,16 @@ body {
 
     .producto{
         width: 98%;
-        height: 93%;
+        height: 94.5%;
         margin: 5% 1% 5% 1%;
     }
    
+}
+
+@media (min-width: 1080px) {
+    /*Minimo de 768*/
+    #cards{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
 }

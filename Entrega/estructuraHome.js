@@ -3,6 +3,10 @@ const autos = [
     { id: 12, marca: "Chevrolet", modelo: "Cruze", anio: 2022, kilometros: 0, estado: "Nuevo", valor: 6000000, img: "./img/Auto-Chevrolet.png" },
     { id: 13, marca: "Ford", modelo: "Focus-SE", anio: 2022, kilometros: 0, estado: "Nuevo", valor: 6500000, img: "./img/Auto-Ford.png" },
     { id: 14, marca: "Volkswagen", modelo: "Polo", anio: 2022, kilometros: 0, estado: "Nuevo", valor: 5500000, img: "./img/Auto-Volkswagen.png" },
+    { id: 15, marca: "Audi", modelo: "TT", anio: 2010, kilometros: 126000, estado: "Usado", valor: 8500000, img: "./img/Auto-Audi-TT.png" },
+    { id: 16, marca: "Chevrolet", modelo: "Corsa", anio: 2005, kilometros: 235000, estado: "Usado", valor: 860000, img: "./img/Auto-Chevrolet-Corsa.png" },
+    { id: 17, marca: "Ford", modelo: "EcoSport", anio: 2014, kilometros: 75000, estado: "Usado", valor: 1820000, img: "./img/Auto-Ford-EcoSport.png" },
+    { id: 18, marca: "Volkswagen", modelo: "Amarok", anio: 2015, kilometros: 123000, estado: "Usado", valor: 8820000, img: "./img/Auto-Volkswagen-Amarok.png" },
 ]
 
 
@@ -20,11 +24,8 @@ menorValor.addEventListener("click", () => {
             return 0;
         }
     })
-    renderizarAutos()
+    renderizarAutos(autos)
 })
-
-
-//----FIN FILTRAR POR MENOR VALOR ----
 
 // ----FILTRAR POR MAYOR VALOR ----
 let mayorValor = document.getElementById("mayorValor")
@@ -39,14 +40,78 @@ mayorValor.addEventListener("click", () => {
             return 0;
         }
     })
-    console.log(autos.valor)
-    mayorValor.insertAdjacentHTML("beforeend", + autos.valor + '</p>')
+    renderizarAutos(autos)
 })
 
 
+// Vehiculo mayor kilometros
+
+let mayorKilometros = document.getElementById("mayorKilometros")
+
+mayorKilometros.addEventListener("click", () => {
+    autos.sort((a, b) => {
+        if (a.kilometros > b.kilometros) {
+            return -1;
+        } else if (a.kilometros < b.kilometros) {
+            return 1;
+        } else {
+            return 0;
+        }
+    })
+    renderizarAutos(autos)
+})
 
 
-// ----FIN DE FILTRAR POR MAYOR VALOR ----
+// Vehiculo menor kilometros
+
+let menorKilometros = document.getElementById("menorKilometros")
+
+menorKilometros.addEventListener("click", () => {
+    autos.sort((a, b) => {
+        if (a.kilometros < b.kilometros) {
+            return -1;
+        } else if (a.kilometros > b.kilometros) {
+            return 1;
+        } else {
+            return 0;
+        }
+    })
+    renderizarAutos(autos)
+})
+
+
+// Vehiculo mayor kilometros
+
+let menorAnio = document.getElementById("menorAnio")
+
+menorAnio.addEventListener("click", () => {
+    autos.sort((a, b) => {
+        if (a.anio < b.anio) {
+            return -1;
+        } else if (a.anio > b.anio) {
+            return 1;
+        } else {
+            return 0;
+        }
+    })
+    renderizarAutos(autos)
+})
+
+
+let mayorAnio = document.getElementById("mayorAnio")
+
+mayorAnio.addEventListener("click", () => {
+    autos.sort((a, b) => {
+        if (a.anio > b.anio) {
+            return -1;
+        } else if (a.anio < b.anio) {
+            return 1;
+        } else {
+            return 0;
+        }
+    })
+    renderizarAutos(autos)
+})
 
 // ---- BUSCAR VEHICULO ----
 const inputBusqueda = document.getElementById("busqueda")
@@ -57,32 +122,10 @@ renderizarAutos(autos)
 
 
 botonBuscar.onclick = () => {
-    // resultados.innerHTML = ''
-    let autosFiltrados = autos.filter(auto => auto.marca.includes(inputBusqueda.marca))
+    cards.innerHTML = ''
+    let autosFiltrados = autos.filter(auto => auto.marca.includes(inputBusqueda.value))
     renderizarAutos(autosFiltrados)
 }
-    // const texto = inputBusqueda.value.toLowerCase()
-
-    // for (const auto of autos) {
-    //     let nombre = auto.marca.toLowerCase()
-    //     if (nombre.indexOf(texto) !== -1) {
-    //         resultados.innerHTML += `
-    //         <li>
-    //         Marca:${auto.marca}
-    //         Modelo:${auto.modelo}
-    //         Valor: $${auto.valor}
-    //         Km:${auto.kilometros}
-    //         </li>
-    //         `
-    //     }
-    // }
-    // if (resultados.innerHTML === '') {
-    //     resultados.innerHTML += `
-    //         <li>Producto no encontrado..</li>
-    //         `
-    // }
-
-// botonBuscar.addEventListener('click', busqueda)
 
 // --------CARDS---------
 
@@ -94,10 +137,10 @@ function renderizarAutos(autosFiltrados) {
         tarjetaProducto.className = 'producto'
         tarjetaProducto.innerHTML = `
         <img class="imgCard cards" src=${auto.img}>
-        <h3 class="h3Card cards">${auto.marca}</h3>
-        <h4 class="h4Card cards">${auto.modelo}</h4>
-        <p class="parrafoCard cards">${auto.anio}</p>
-        <p class="parrafoCard cards">${auto.kilometros}</p>
+        <p class="h3Card cards"><h5>Marca</h5> ${auto.marca}</p>
+        <p class="h4Card cards"><h5>Modelo</h5> ${auto.modelo}</p>
+        <p class="parrafoCard cards"><h5>Año</h5> ${auto.anio}</p>
+        <p class="parrafoCard cards"><h5>Kilometros</h5> ${auto.kilometros}</p>
         <button class="boton" id=${auto.id}>Agregar al carrito</button>
         `
         cards.append(tarjetaProducto)
