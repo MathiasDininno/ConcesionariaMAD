@@ -23,8 +23,14 @@ body {
     height: 100%;
 }
 
-#carrito{
+.terminos{
+    text-align: center;
+    padding: 2% 10% 2% 10%;
+}
 
+.termino{
+    margin-top: 2%;
+    width: 78%;
 }
 
 .carousel-inner {
@@ -41,6 +47,14 @@ body {
     border-color: rgb(184, 197, 42);
     flex-direction: column;
     align-items: center;
+}
+
+.filtrar{
+    width: 100%;
+    text-align: center;
+    margin: 4% 0% 0% 5%;
+    border: none;
+    background-color: #00000061;
 }
 
 #cards {
@@ -82,6 +96,8 @@ body {
 }
 
 #footer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     text-align: center;
     color: antiquewhite;
     background-color: RGBA(33, 37, 41, var(--bs-bg-opacity, 1)) !important;

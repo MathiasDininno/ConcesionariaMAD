@@ -195,6 +195,7 @@ function retornarCarrito() {
         total += item.Subtotal
         carritoContenedor.innerHTML += `
         <div class="itemCarrito">
+        <img class="imgCarrito" src=${item.img}>
         <p>${item.nombre}</p>
         <p>${item.precioUnidad}</p>
         <p>${item.Unidades}</p>
