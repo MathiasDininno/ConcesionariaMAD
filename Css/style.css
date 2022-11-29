@@ -14,24 +14,51 @@ body {
     justify-content: center;
 }
 
-.logo {
-    width: 20%;
-    height: 10%;
-}
-
-.offcanvas{
-    height: 100%;
-}
-
 .terminos{
+    display: grid;
     text-align: center;
     padding: 2% 10% 2% 10%;
 }
 
-.termino{
-    margin-top: 2%;
-    width: 78%;
+.btn-primary{
+    --bs-btn-bg: #0d6dfd00 !important; 
+    --bs-btn-border-color: #0d6dfd00 !important;
 }
+
+.offcanvas.offcanvas-start{
+    height: 90%;
+    width: 35%;
+    color: white;
+    background-color: rgb(0, 0, 0);
+}
+
+.offcanvas.offcanvas-bottom{
+    left: 10% !important;
+    height: 90% !important;
+}
+
+.collapsible {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    cursor: pointer;
+    padding: 6%;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+  }
+  
+  .active, .collapsible:hover {
+    background-color: rgb(52, 47, 47);
+  }
+  
+  .content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #777676;
+  }
 
 .carousel-inner {
     padding-top: 56px;
@@ -49,19 +76,57 @@ body {
     align-items: center;
 }
 
+.offcanvas.show:not(.hiding), .offcanvas.showing{
+    background-color: black;
+    color: white;
+}
+
+.btnFinalizar{
+    padding: 1%;
+    text-decoration: none;
+    transition: all 100ms ease;
+    color: white;
+    background-color: blue;
+}
+
+.btnFinalizar:hover{
+    
+    transform: translateY(-1%);
+    color: blue;
+    background-color: white;
+}
+
+#ordenarYBuscar{
+    text-align: center;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.container{
+    margin-bottom: 2%;
+}
+
+.colapseOrdenar{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.form-control{
+    margin-left: 13%;
+    width: 76% !important;
+}
+
 .filtrar{
     width: 100%;
     text-align: center;
     margin: 4% 0% 0% 5%;
     border: none;
-    background-color: #00000061;
+    background-color: #e8e6e600;
 }
 
 #cards {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 20%;
     align-items: center;
     background-color: rgba(0, 0, 0, 0);
 }
@@ -72,13 +137,24 @@ body {
     height: 20%;
     margin: 5% 0% 5% 0%;
     border: solid 1px rgb(0, 0, 0);
+    box-shadow: 5px 10px 6px rgba(36, 17, 18, 0.50);
     color: azure;
     background-color: rgb(0, 0, 0);
+    transition: all 400ms ease;
+}
+
+.producto:hover{
+    box-shadow: 0px 10px 6px rgba(46, 27, 28, 1);
+    transform: translateY(-3%);
 }
 
 .imgCard {
     width: 100%;
     background-color: aliceblue;
+}
+
+.imgCarrito{
+    width: 100%;
 }
 
 .cards{
@@ -111,23 +187,39 @@ body {
     color: antiquewhite;
 }
 
-/* 360×640 (móvil pequeño)
-1366×768 (ordenador portátil medio)
-1920×1080 (escritorio grande)*/
+
+.itemId{
+    display: none;
+}
 
 #carrito {
     width: 100%;
     height: auto;
-    border: solid 2px rgb(0, 0, 0);
 }
 
 .itemCarrito {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+    text-align: center;
     justify-content: space-around;
+    border-bottom: 1px solid brown;
+}
+
+.itemTotal{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-left: 20%;
+    font-size: x-large;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 @media (min-width: 768px) {
     /*Minimo de 768*/
+    #ordenarYBuscar{
+        display: grid;
+    }
+
     #cards{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -138,13 +230,20 @@ body {
         height: 94.5%;
         margin: 5% 1% 5% 1%;
     }
+    .offcanvas.offcanvas-bottom{
+        left: 25% !important;
+    }
    
 }
 
 @media (min-width: 1080px) {
-    /*Minimo de 768*/
+    /*Minimo de 1080*/
     #cards{
         display: grid;
         grid-template-columns: repeat(3, 1fr);
     }
+    .offcanvas.offcanvas-bottom{
+        left: 50% !important;
+    }
+   
 }

@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="./Css/style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-  <title>Document</title>
+  <title>Concecesionaria M.A.D</title>
 </head>
 
 <body>
@@ -16,53 +16,71 @@
     <!-- COMIENZO DE NAVBAR -->
     <nav class="navbar navbar-dark bg-dark fixed-top">
       <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
-          aria-controls="offcanvasDarkNavbar">
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
           <span class="navbar-toggler-icon"></span>
         </button>
 
+
         <!-- Inicio de icono carrito -->
-        <button id="verCarrito" class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-          🛒
-        </button>
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom"
+          aria-controls="offcanvasBottom">🛒</button>
+
+        <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom"
+          aria-labelledby="offcanvasBottomLabel">
           <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasRightLabel">Carrito de compras</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <h5 class="offcanvas-title" id="offcanvasBottomLabel">Carrito de compras</h5>
+            <button type="button" data-bs-dismiss="offcanvas" aria-label="Close">❌</button>
           </div>
           <div class="offcanvas-body">
             <div id="carrito"></div>
           </div>
-        </div>
-        <!-- Titulos - filtrados de boton acordeón -->
-        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
-          aria-labelledby="offcanvasDarkNavbarLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Concesionaria de confianza</h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
-              aria-label="Close"></button>
-        </div>
-        <div class="terminos">
-          <button class="termino">Terminos y Condiciones</button>
-          <button class="termino">Politica y privacidad</button>
-        </div>
-
-          <div class="offcanvas-body">
-            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-              <div class="container mt-5">
-                <h1>Buscar vehiculo</h1>
-                <input type="text" id="busqueda" class="form-control my-2">
-                <button class="btn btn-info mb-2" id="botonBuscar">BUSCAR</button>
-              </div>
-              <ul id="resultados">
-              </ul>
-            </ul>  
+          <p>
+            <a class="btnFinalizar" data-bs-toggle="collapse" href="#collapseExample" role="button"
+              aria-expanded="false" aria-controls="collapseExample">
+              Finalizar compra
+            </a>
+            <a class="btnFinalizar" id="vaciarCarrito" role="button" aria-expanded="Close"
+              aria-controls="collapseExample">
+              Vaciar carrito
+            </a>
+          </p>
+          <div class="collapse" id="collapseExample">
+            <p>Concesionaria de confianza</p>
+            <form class="col-xl-6 col-md-12" id="formulario">
+              <label for="nombre" class="form-label">Nombre y Apellido</label>
+              <input type="text" class="form-control" id="nombre" required />
+              <label for="email" class="form-label">Correo Electrónico</label>
+              <input type="email" class="form-control" id="email" required />
+              <button type="submit" class="btnFinalizar colorBoton my-2">Comprar</button>
+            </form>
           </div>
         </div>
-      </div>
+        <!-- Terminos y condiciones-->
+        <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+          aria-labelledby="offcanvasWithBothOptionsLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Politica y privacidad</h5>
+            <button type="button" data-bs-dismiss="offcanvas" aria-label="Close">❌</button>
+          </div>
+          <div class="terminos">
+            <button type="button" class="collapsible">Terminos y condiciones</button>
+            <div class="content">
+              <p>Los vehiculos son previamente revisados por el comprador, una vez firmado el boleto de compra y venta
+                el propietario no tendra ningun derecho de reclamo. Saludos de Concecesionaria M.A.D</p>
+            </div>
+            <button type="button" class="collapsible">Quienes somos</button>
+            <div class="content">
+              <p>Concecesionaria M.A.D es simbolo de confianza y familia.
+                Hace mas de 5 años nos destacamos por la venta de vehiculos para todo Balcarce. Tenemos los mejores
+                vehiculos al menor precio.
+                En cada venta buscamos que cada uno de nuestros clientes pueda irse con su vehiculo soñado.
+                Gracias por confiar un nuestro servicio. Saludos de Concecesionaria M.A.D.
+              </p>
+            </div>
+          </div>
+        </div>
     </nav>
-
 
 
     <!-- Inicio de CARRUSEL -->
@@ -101,66 +119,65 @@
 
 
     <!-- Accordion -->
-    <div class="accordion" id="accordionExample">
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingOne">
-          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-            aria-expanded="true" aria-controls="collapseOne">
-            Ordenar por..
-          </button>
-        </h2>
-        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
-          data-bs-parent="#accordionExample">
-          <div class="offcanvas-body">
-            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-              <li class="nav-item">
-                <button class="filtrar" id="mayorValor">Mayor valor</button>
-              </li>
-              <li class="nav-item">
-                <button class="filtrar" id="menorValor">Menor valor</button>
-              </li>
-              <li class="nav-item">
-                <button class="filtrar" id="mayorKilometros">Meyor kilometraje</button>
-              </li>
-              <li class="nav-item">
-                <button class="filtrar" id="menorKilometros">Menor kilometraje</button>
-              </li>
-              <li class="nav-item">
-                <button class="filtrar" id="menorAnio">Menor modelo</button>
-              </li>
-              <li class="nav-item">
-                <button class="filtrar" id="mayorAnio">Mayor modelo</button>
-              </li>
-            </ul>
-          </div>
+    <div id="ordenarYBuscar" class="offcanvas-body">
+      <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+        <div class="container">
+          <h1>Buscar vehiculo</h1>
+          <input type="text" id="busqueda" class="form-control my-2">
+          <button class="btn btn-info mb-2" id="botonBuscar">BUSCAR</button>
         </div>
+        <ul id="resultados">
+        </ul>
+      </ul>
+      <div class="colapseOrdenar">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <button class="filtrar" id="mayorValor">Mayor valor</button>
+          </li>
+          <li class="nav-item">
+            <button class="filtrar" id="menorValor">Menor valor</button>
+          </li>
+          <li class="nav-item">
+            <button class="filtrar" id="mayorKilometros">Mayor kilometraje</button>
+          </li>
+          <li class="nav-item">
+            <button class="filtrar" id="menorKilometros">Menor kilometraje</button>
+          </li>
+          <li class="nav-item">
+            <button class="filtrar" id="menorAnio">Menor modelo</button>
+          </li>
+          <li class="nav-item">
+            <button class="filtrar" id="mayorAnio">Mayor modelo</button>
+          </li>
+        </ul>
       </div>
     </div>
-    <!-- Fin Accordion -->
+  </div>
+  <!-- Fin Accordion -->
 
-    <!-- INICIO CARD -->
-    <div id="cards"></div>
+  <!-- INICIO CARD -->
+  <div id="cards"></div>
 
-    <!-- Foto publicitaria -->
-    <div class="cardPublicidad mb-3">
-      <img src="./img/Plan-tasa-0.webp" class="card-img-top" alt="">
-    </div>
+  <!-- Foto publicitaria -->
+  <div class="cardPublicidad mb-3">
+    <img src="./img/Plan-tasa-0.webp" class="card-img-top" alt="">
+  </div>
 
-    <!-- INICIO FOOTER -->
-    <div id="footer">
-      <h4 class="redesSociales">Redes Sociales</h4>
-      <ul>
-        <li class="redSocial"><a href="#">Correo</a></li>
-        <li class="redSocial"><a href="#">Intagram</a></li>
-        <li class="redSocial"><a href="#">Whatsapp</a></li>
-      </ul>
-    </div>
-    <!-- FINAL FOOTER -->
+  <!-- INICIO FOOTER -->
+  <div id="footer">
+    <h4 class="redesSociales">Redes Sociales</h4>
+    <ul>
+      <li class="redSocial"><a href="#">Correo</a></li>
+      <li class="redSocial"><a href="#">Intagram</a></li>
+      <li class="redSocial"><a href="#">Whatsapp</a></li>
+    </ul>
+  </div>
+  <!-- FINAL FOOTER -->
 
   </div><!-- FIN DE CONTENEDOR -->
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="./Entrega/entregaNumeroDos.js"></script>
   <script src="./Entrega/estructuraHome.js"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
     crossorigin="anonymous"></script>

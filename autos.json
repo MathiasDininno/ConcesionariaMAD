@@ -1,0 +1,80 @@
+[{
+    "id": 11,
+    "marca": "audi",
+    "modelo": "A7",
+    "anio": 2022,
+    "kilometros": 0,
+    "estado": "Nuevo",
+    "valor": 15000000,
+    "img": "./img/Auto-Audi.png"
+},
+{
+    "id": 12,
+    "marca": "chevrolet",
+    "modelo": "Cruze",
+    "anio": 2022,
+    "kilometros": 0,
+    "estado": "Nuevo",
+    "valor": 6000000,
+    "img": "./img/Auto-Chevrolet.png"
+},
+{
+    "id": 13,
+    "marca": "ford",
+    "modelo": "Focus-SE",
+    "anio": 2022,
+    "kilometros": 0,
+    "estado": "Nuevo",
+    "valor": 6500000,
+    "img": "./img/Auto-Ford.png"
+},
+{
+    "id": 14,
+    "marca": "volkswagen",
+    "modelo": "Polo",
+    "anio": 2022,
+    "kilometros": 0,
+    "estado": "Nuevo",
+    "valor": 5500000,
+    "img": "./img/Auto-Volkswagen.png"
+},
+{
+    "id": 15,
+    "marca": "audi",
+    "modelo": "TT",
+    "anio": 2010,
+    "kilometros": 126000,
+    "estado": "Usado",
+    "valor": 8500000,
+    "img": "./img/Auto-Audi-TT.png"
+},
+{
+    "id": 16,
+    "marca": "chevrolet",
+    "modelo": "Corsa",
+    "anio": 2005,
+    "kilometros": 235000,
+    "estado": "Usado",
+    "valor": 860000,
+    "img": "./img/Auto-Chevrolet-Corsa.png"
+},
+{
+    "id": 17,
+    "marca": "ford",
+    "modelo": "EcoSport",
+    "anio": 2014,
+    "kilometros": 75000,
+    "estado": "Usado",
+    "valor": 1820000,
+    "img": "./img/Auto-Ford-EcoSport.png"
+},
+{
+    "id": 18,
+    "marca": "volkswagen",
+    "modelo": "Amarok",
+    "anio": 2015,
+    "kilometros": 123000,
+    "estado": "Usado",
+    "valor": 8820000,
+    "img": "./img/Auto-Volkswagen-Amarok.png"
+}]
