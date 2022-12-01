@@ -1,27 +1,27 @@
 const url = "./autos.json"
 
-fetch(url)
-    .then(res => res.json())
-    .then(item => {
-        item.forEach((item) => {
-            renderizarAutos(autosFiltrados)
-            cards.innerHTML = ''
-            for (const auto of autosFiltrados) {
-                let tarjetaProducto = document.createElement('div')
-                tarjetaProducto.className = 'producto'
-                tarjetaProducto.innerHTML = `
-            <img class="imgCard cards" src="${auto.img}">
-            <p class="h3Card cards"><h5>Marca</h5> ${auto.marca}</p>
-            <p class="h4Card cards"><h5>Modelo</h5> ${auto.modelo}</p>
-            <p class="parrafoCard cards"><h5>Año</h5> ${auto.anio}</p>
-            <p class="parrafoCard cards"><h5>Kilometros</h5> ${auto.kilometros}</p>
-            <button class="boton" id=${auto.id}>Agregar al carrito</button>
-            `
-                cards.append(tarjetaProducto)
-            }
-        })
-    })
+const renderizarAutos = (autos) => {
+    cards.innerHTML = ''
+    for (const auto of autos) {
+        let tarjetaProducto = document.createElement('div')
+        tarjetaProducto.className = 'producto'
+        tarjetaProducto.innerHTML = `
+    <img class="imgCard cards" src="${auto.img}">
+    <p class="h3Card cards"><h5>Marca</h5> ${auto.marca}</p>
+    <p class="h4Card cards"><h5>Modelo</h5> ${auto.modelo}</p>
+    <p class="parrafoCard cards"><h5>Año</h5> ${auto.anio}</p>
+    <p class="parrafoCard cards"><h5>Kilometros</h5> ${auto.kilometros}</p>
+    <button class="boton" id=${auto.id}>Agregar al carrito</button>
+    `
+        cards.append(tarjetaProducto)
+    }
+}
 
+fetch(url)
+    .then((res) => res.json())
+    .then((item) => {
+        renderizarAutos(item)
+    })
 
 
 let botones = document.getElementsByClassName("boton")
@@ -94,110 +94,140 @@ idFormulario.addEventListener('submit', (e) => {
 //---- FILTRAR POR MENOR VALOR----
 let menorValor = document.getElementById("menorValor")
 
-menorValor.addEventListener("click", () => {
-    autos.sort((a, b) => {
-        if (a.valor < b.valor) {
-            return -1;
-        } else if (a.valor > b.valor) {
-            return 1;
-        } else {
-            return 0;
-        }
+
+fetch(url)
+    .then((res) => res.json())
+    .then((item) => {
+        menorValor.addEventListener("click", () => {
+            item.sort((a, b) => {
+                if (a.valor < b.valor) {
+                    return -1;
+                } else if (a.valor > b.valor) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            })
+            renderizarAutos(item)
+            agregarAlCarrito(item)
+        })
     })
-    renderizarAutos(autos)
-    agregarAlCarrito(autos)
-})
 
 // ----FILTRAR POR MAYOR VALOR ----
 let mayorValor = document.getElementById("mayorValor")
 
-mayorValor.addEventListener("click", () => {
-    autos.sort((a, b) => {
-        if (a.valor > b.valor) {
-            return -1;
-        } else if (a.valor < b.valor) {
-            return 1;
-        } else {
-            return 0;
-        }
+fetch(url)
+    .then((res) => res.json())
+    .then((item) => {
+        mayorValor.addEventListener("click", () => {
+            item.sort((a, b) => {
+                if (a.valor > b.valor) {
+                    return -1;
+                } else if (a.valor < b.valor) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            })
+            renderizarAutos(item)
+            agregarAlCarrito(item)
+        })
     })
-    renderizarAutos(autos)
-    agregarAlCarrito(autos)
-})
+
 
 
 // Vehiculo mayor kilometros
 
 let mayorKilometros = document.getElementById("mayorKilometros")
 
-mayorKilometros.addEventListener("click", () => {
-    autos.sort((a, b) => {
-        if (a.kilometros > b.kilometros) {
-            return -1;
-        } else if (a.kilometros < b.kilometros) {
-            return 1;
-        } else {
-            return 0;
-        }
+fetch(url)
+    .then((res) => res.json())
+    .then((item) => {
+        mayorKilometros.addEventListener("click", () => {
+            item.sort((a, b) => {
+                if (a.kilometros > b.kilometros) {
+                    return -1;
+                } else if (a.kilometros < b.kilometros) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            })
+            renderizarAutos(item)
+            agregarAlCarrito(item)
+        })
     })
-    renderizarAutos(autos)
-    agregarAlCarrito(autos)
-})
+
 
 
 // Vehiculo menor kilometros
 
 let menorKilometros = document.getElementById("menorKilometros")
 
-menorKilometros.addEventListener("click", () => {
-    autos.sort((a, b) => {
-        if (a.kilometros < b.kilometros) {
-            return -1;
-        } else if (a.kilometros > b.kilometros) {
-            return 1;
-        } else {
-            return 0;
-        }
+fetch(url)
+    .then((res) => res.json())
+    .then((item) => {
+        menorKilometros.addEventListener("click", () => {
+            item.sort((a, b) => {
+                if (a.kilometros < b.kilometros) {
+                    return -1;
+                } else if (a.kilometros > b.kilometros) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            })
+            renderizarAutos(item)
+            agregarAlCarrito(item)
+        })
     })
-    renderizarAutos(autos)
-    agregarAlCarrito(autos)
-})
+
 
 
 // Vehiculo mayor kilometros
 
 let menorAnio = document.getElementById("menorAnio")
 
-menorAnio.addEventListener("click", () => {
-    autos.sort((a, b) => {
-        if (a.anio < b.anio) {
-            return -1;
-        } else if (a.anio > b.anio) {
-            return 1;
-        } else {
-            return 0;
-        }
+fetch(url)
+    .then((res) => res.json())
+    .then((item) => {
+        menorAnio.addEventListener("click", () => {
+            item.sort((a, b) => {
+                if (a.anio < b.anio) {
+                    return -1;
+                } else if (a.anio > b.anio) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            })
+            renderizarAutos(item)
+            agregarAlCarrito(item)
+        })
     })
-    renderizarAutos(autos)
-    agregarAlCarrito(autos)
-})
+
 
 
 let mayorAnio = document.getElementById("mayorAnio")
 
-mayorAnio.addEventListener("click", () => {
-    autos.sort((a, b) => {
-        if (a.anio > b.anio) {
-            return -1;
-        } else if (a.anio < b.anio) {
-            return 1;
-        } else {
-            return 0;
-        }
+fetch(url)
+    .then((res) => res.json())
+    .then((item) => {
+        mayorAnio.addEventListener("click", () => {
+            item.sort((a, b) => {
+                if (a.anio > b.anio) {
+                    return -1;
+                } else if (a.anio < b.anio) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            })
+            renderizarAutos(item)
+            agregarAlCarrito(item)
+        })
     })
-    renderizarAutos(autos)
-    agregarAlCarrito(autos)
-})
+
 
 
 // ---- BUSCAR VEHICULO ----
@@ -205,17 +235,21 @@ const inputBusqueda = document.getElementById("busqueda")
 const botonBuscar = document.getElementById("botonBuscar")
 const resultados = document.getElementById("resultados")
 let cards = document.getElementById("cards")
-renderizarAutos(autos)
+// renderizarAutos(autos)
 
 
+fetch(url)
+    .then((res) => res.json())
+    .then((item) => {
+        botonBuscar.onclick = () => {
+            cards.innerHTML = ''
+            let autosFiltrados = item.filter(auto => auto.marca.includes(inputBusqueda.value.toLowerCase()))
+            renderizarAutos(autosFiltrados)
+            agregarAlCarrito(autosFiltrados)
 
-botonBuscar.onclick = () => {
-    cards.innerHTML = ''
-    let autosFiltrados = autos.filter(auto => auto.marca.includes(inputBusqueda.value.toLowerCase()))
-    renderizarAutos(autosFiltrados)
-    agregarAlCarrito(autosFiltrados)
+        }
+    })
 
-}
 
 
 function retornarCarrito() {
