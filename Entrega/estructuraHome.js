@@ -39,7 +39,11 @@ retornarCarrito()
 function agregarAlCarrito() {
     for (const boton of botones) {
         boton.onclick = (e) => {
-            let productoBuscado = autos.find(auto => auto.id == e.target.id)
+            let productoBuscado = fetch(url)
+            .then((res) => res.json())
+            .then((item) => {
+            item.find(auto => auto.id == e.target.id)
+        })  
 
             let posicionProductoCarrito = carritoCompra.findIndex(auto => auto.id == productoBuscado.id)
 
