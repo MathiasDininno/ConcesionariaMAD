@@ -1,21 +1,5 @@
 const url = "./autos.json"
 
-const renderizarAutos = (autos) => {
-    cards.innerHTML = ''
-    for (const auto of autos) {
-        let tarjetaProducto = document.createElement('div')
-        tarjetaProducto.className = 'producto'
-        tarjetaProducto.innerHTML = `
-    <img class="imgCard cards" src="${auto.img}">
-    <p class="h3Card cards"><h5>Marca</h5> ${auto.marca}</p>
-    <p class="h4Card cards"><h5>Modelo</h5> ${auto.modelo}</p>
-    <p class="parrafoCard cards"><h5>Año</h5> ${auto.anio}</p>
-    <p class="parrafoCard cards"><h5>Kilometros</h5> ${auto.kilometros}</p>
-    <button class="boton" id=${auto.id}>Agregar al carrito</button>
-    `
-        cards.append(tarjetaProducto)
-    }
-}
 
 fetch(url)
     .then((res) => res.json())
@@ -23,6 +7,22 @@ fetch(url)
         renderizarAutos(item)
     })
 
+const renderizarAutos = (autos) => {
+    cards.innerHTML = ''
+    for (const auto of autos) {
+        let tarjetaProducto = document.createElement('div')
+        tarjetaProducto.className = 'producto'
+        tarjetaProducto.innerHTML = `
+        <img class="imgCard cards" src="${auto.img}">
+        <p class="h3Card cards"><h5>Marca</h5> ${auto.marca}</p>
+        <p class="h4Card cards"><h5>Modelo</h5> ${auto.modelo}</p>
+        <p class="parrafoCard cards"><h5>Año</h5> ${auto.anio}</p>
+        <p class="parrafoCard cards"><h5>Kilometros</h5> ${auto.kilometros}</p>
+        <button class="boton" id=${auto.id}>Agregar al carrito</button>
+        `
+        cards.append(tarjetaProducto)
+    }
+}
 
 let botones = document.getElementsByClassName("boton")
 let carritoContenedor = document.getElementById("carrito")
@@ -36,38 +36,37 @@ if (localStorage.getItem("carritoContenedor")) {
 
 retornarCarrito()
 
-function agregarAlCarrito() {
-    for (const boton of botones) {
-        boton.onclick = (e) => {
-            let productoBuscado = fetch(url)
-            .then((res) => res.json())
-            .then((item) => {
-            item.find(auto => auto.id == e.target.id)
-        })  
-
-            let posicionProductoCarrito = carritoCompra.findIndex(auto => auto.id == productoBuscado.id)
-
-            if (posicionProductoCarrito != -1) {
-                carritoCompra[posicionProductoCarrito].Unidades++
-                carritoCompra[posicionProductoCarrito].Subtotal = carritoCompra[posicionProductoCarrito].precioUnidad * carritoCompra[posicionProductoCarrito].Unidades
-
-            } else {
-                carritoCompra.push({
-                    id: productoBuscado.id,
-                    img: productoBuscado.img,
-                    nombre: productoBuscado.modelo,
-                    precioUnidad: productoBuscado.valor,
-                    Unidades: 1,
-                    Subtotal: productoBuscado.valor,
-                })
+function agregarAlCarrito() { 
+    fetch(url)
+    .then((res) => res.json())
+    .then((item) => {
+        for (const boton of botones) {
+            boton.onclick = (e) => {
+                let productoBuscado = item.find(auto => auto.id == e.target.id)
+                let posicionProductoCarrito = carritoCompra.findIndex(auto => auto.id == productoBuscado.id)
+    
+                if (posicionProductoCarrito != -1) {
+                    carritoCompra[posicionProductoCarrito].Unidades++
+                    carritoCompra[posicionProductoCarrito].Subtotal = carritoCompra[posicionProductoCarrito].precioUnidad * carritoCompra[posicionProductoCarrito].Unidades
+    
+                } else {
+                    carritoCompra.push({
+                        id: productoBuscado.id,
+                        img: productoBuscado.img,
+                        nombre: productoBuscado.modelo,
+                        precioUnidad: productoBuscado.valor,
+                        Unidades: 1,
+                        Subtotal: productoBuscado.valor,
+                    })
+                }
+    
+                console.log(carritoCompra)
+                localStorage.setItem("carritoContenedor", JSON.stringify(carritoCompra))
+                retornarCarrito()
+                Swal.fire('¡Se agrego al carrito!')
             }
-
-            console.log(carritoCompra)
-            localStorage.setItem("carritoContenedor", JSON.stringify(carritoCompra))
-            retornarCarrito()
-            Swal.fire('¡Se agrego al carrito!')
         }
-    }
+    })
 }
 
 // Politica y privacidad(Boton acordeon)
@@ -98,11 +97,11 @@ idFormulario.addEventListener('submit', (e) => {
 //---- FILTRAR POR MENOR VALOR----
 let menorValor = document.getElementById("menorValor")
 
-
 fetch(url)
     .then((res) => res.json())
     .then((item) => {
-        menorValor.addEventListener("click", () => {
+        // arrayPrueba.push(item)
+        menorValor.addEventListener("click", () => { 
             item.sort((a, b) => {
                 if (a.valor < b.valor) {
                     return -1;
@@ -116,6 +115,7 @@ fetch(url)
             agregarAlCarrito(item)
         })
     })
+
 
 // ----FILTRAR POR MAYOR VALOR ----
 let mayorValor = document.getElementById("mayorValor")
@@ -239,7 +239,7 @@ const inputBusqueda = document.getElementById("busqueda")
 const botonBuscar = document.getElementById("botonBuscar")
 const resultados = document.getElementById("resultados")
 let cards = document.getElementById("cards")
-// renderizarAutos(autos)
+// renderizarAutos(arrayPrueba[0])
 
 
 fetch(url)
